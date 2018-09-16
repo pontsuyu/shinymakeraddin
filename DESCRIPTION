@@ -1,0 +1,26 @@
+Package: shinymakeraddin
+Type: Package
+Title: shiny Template Maker
+Version: 1.0.0
+Author: c(
+    person("Hiroyuki", "Tsuyuzaki", email="wu.pe.s2.47@gmail.com", role="cre")
+    )
+Description: Make your shiny template
+License: MIT
+Encoding: UTF-8
+Depends: shiny,
+  shinythemes
+Suggests: tidyverse,
+  plotly,
+  visNetwork,
+  DT,
+  DiagrammeR,
+  gridExtra,
+  magick,
+  EBImage,
+  RMySQL,
+  RPostgreSQL,
+  RODBC,
+  leaflet,
+  ggmap
+RoxygenNote: 6.0.1
