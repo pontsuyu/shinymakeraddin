@@ -1,2 +1,0 @@
-data(UIContentsCode)
-data(ServerContentsCode)
