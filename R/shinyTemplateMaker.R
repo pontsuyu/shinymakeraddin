@@ -119,12 +119,14 @@ ui <- fluidPage(shiny_theme_selector(),
                 )
 )
 
-# UI/SERVEER.contents.code data----
-data(UIContentsCode)
-data(ServerContentsCode)
-
 # SERVER----
 server <- function(input, output, session){
+  data(UIContentsCode)
+  data(ServerContentsCode)
+  data(libraryList)
+  data(inputContents)
+  data(outputContents)
+
   comment1 <- eventReactive(input$save_shiny,{
     
     # library.part of shiny.code----
