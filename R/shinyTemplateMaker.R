@@ -5,15 +5,27 @@
 #' 
 
 # library.list----
-data(libraryList)
+number <- 1:13
+names(number) <- c("tidyverse","plotly","visNetwork","DT","DiagrammeR","gridExtra","magick",
+                   "EBImage","RMySQL","RPostgreSQL","RODBC","leaflet","ggmap")
+libraryName <- factor(names(number))
+libraryList <- list(number=number, libraryName=libraryName)
 libraryChoices <- as.list(libraryList$number)
 
 # inputContents.list----
-data(inputContents)
+number <- 1:10
+names(number) <- c("textInput","radioButtons","numericInput","sliderInput","selectInput",
+                   "dateInput","dateRangeInput","fileInput","actionButton","checkboxGroupInput")
+contents <- factor(names(number))
+inputContents <- list(number=number, contents=contents)
 inputContentsChoices <- as.list(inputContents$number)
 
 # outputContents.list----
-data(outputContents)
+number <- 1:10
+names(number) <- c("ggplot2","plotly","renderImage","leaflet","click_image",
+                   "click_plot","DiagrammeR","visNetwork","verbatimTextOutput","dataTableOutput")
+contents <- factor(names(number))
+outputContents <- list(number=number, contents=contents)
 outputContentsChoices <- as.list(outputContents$number)
 
 shiny_theme_selector <- function () {
@@ -121,14 +133,10 @@ ui <- fluidPage(shiny_theme_selector(),
 
 # SERVER----
 server <- function(input, output, session){
-  data(UIContentsCode)
-  data(ServerContentsCode)
-  data(libraryList)
-  data(inputContents)
-  data(outputContents)
-
+  temp <- new.env()
+  data(UIContentsCode, envir = temp)
+  data(ServerContentsCode, envir = temp)    
   comment1 <- eventReactive(input$save_shiny,{
-    
     # library.part of shiny.code----
     libraryCommnetCode <- '\n# library----'
     makeLibraryCode <- function(libraryList){
@@ -236,9 +244,6 @@ server <- function(input, output, session){
     code.server <- c(libraryCode, code.server)
     write(code.server, file = paste0(input$title, "/server.R"))
     text <- 'Files were created.'
-    
-    ### error.check----
-    # error.check <- contentNumber
   })
   output$comment1 <- renderText({
     comment1()
