@@ -133,9 +133,8 @@ ui <- fluidPage(shiny_theme_selector(),
 
 # SERVER----
 server <- function(input, output, session){
-  temp <- new.env()
-  data(UIContentsCode, envir = temp)
-  data(ServerContentsCode, envir = temp)    
+  load("data/ServerContentsCode.rda")
+  load("data/UIContentsCode.rda")
   comment1 <- eventReactive(input$save_shiny,{
     # library.part of shiny.code----
     libraryCommnetCode <- '\n# library----'
