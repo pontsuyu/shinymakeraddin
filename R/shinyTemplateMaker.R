@@ -4,30 +4,6 @@
 #' @name shinyTemplateMaker
 #' 
 
-# library.list----
-number <- 1:13
-names(number) <- c("tidyverse","plotly","visNetwork","DT","DiagrammeR","gridExtra","magick",
-                   "EBImage","RMySQL","RPostgreSQL","RODBC","leaflet","ggmap")
-libraryName <- factor(names(number))
-libraryList <- list(number=number, libraryName=libraryName)
-libraryChoices <- as.list(libraryList$number)
-
-# inputContents.list----
-number <- 1:10
-names(number) <- c("textInput","radioButtons","numericInput","sliderInput","selectInput",
-                   "dateInput","dateRangeInput","fileInput","actionButton","checkboxGroupInput")
-contents <- factor(names(number))
-inputContents <- list(number=number, contents=contents)
-inputContentsChoices <- as.list(inputContents$number)
-
-# outputContents.list----
-number <- 1:10
-names(number) <- c("ggplot2","plotly","renderImage","leaflet","click_image",
-                   "click_plot","DiagrammeR","visNetwork","verbatimTextOutput","dataTableOutput")
-contents <- factor(names(number))
-outputContents <- list(number=number, contents=contents)
-outputContentsChoices <- as.list(outputContents$number)
-
 shiny_theme_selector <- function () {
   fixedPanel(top = "10px", left = "380px", draggable = FALSE,
              style = "width: 800px;z-index: 100000;",
@@ -133,8 +109,6 @@ ui <- fluidPage(shiny_theme_selector(),
 
 # SERVER----
 server <- function(input, output, session){
-  ServerContentsCode <- read.csv("ServerContentsCode.csv", stringsAsFactors = F)
-  UIContentsCode <- read.csv("UIContentsCode.csv", stringsAsFactors = F)
   comment1 <- eventReactive(input$save_shiny,{
     # library.part of shiny.code----
     libraryCommnetCode <- '\n# library----'
