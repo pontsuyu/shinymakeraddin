@@ -5,7 +5,6 @@
 #' @name shinyTemplateMaker
 #' 
 
-library(shinythemes)
 shiny_theme_selector <- function () {
   fixedPanel(top = "10px", left = "380px", draggable = FALSE,
              style = "width: 800px;z-index: 100000;",

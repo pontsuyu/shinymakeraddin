@@ -2,7 +2,11 @@
 % Please edit documentation in R/shinyTemplateMaker.R
 \name{shinyTemplateMaker}
 \alias{shinyTemplateMaker}
+\alias{shiny_theme_selector}
 \title{shinyTemplateMaker}
+\usage{
+shiny_theme_selector()
+}
 \description{
 shinyTemplateMaker
 }
