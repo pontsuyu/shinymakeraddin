@@ -133,8 +133,8 @@ ui <- fluidPage(shiny_theme_selector(),
 
 # SERVER----
 server <- function(input, output, session){
-  ServerContentsCode <- read.csv("data/ServerContentsCode.csv", stringsAsFactors = F)
-  UIContentsCode <- read.csv("data/UIContentsCode.csv", stringsAsFactors = F)
+  ServerContentsCode <- read.csv("ServerContentsCode.csv", stringsAsFactors = F)
+  UIContentsCode <- read.csv("UIContentsCode.csv", stringsAsFactors = F)
   comment1 <- eventReactive(input$save_shiny,{
     # library.part of shiny.code----
     libraryCommnetCode <- '\n# library----'
