@@ -1,6 +1,7 @@
 #' shinyTemplateMaker
 #'
 #' @import shiny
+#' @import shinythemes
 #' @name shinyTemplateMaker
 #' 
 
@@ -146,7 +147,7 @@ server <- function(input, output, session){
              "16" = stheme <- "united",
              "17" = stheme <- "yeti"
       )
-      ui.fluidpage.h <- paste0('fluidPage(theme = shinythemes::shinytheme("',stheme,'"),')
+      ui.fluidpage.h <- paste0('fluidPage(theme = shinytheme("',stheme,'"),')
     }
     ui.fluidpage.t <- ')'
     
